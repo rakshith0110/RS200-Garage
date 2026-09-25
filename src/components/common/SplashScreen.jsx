@@ -35,9 +35,12 @@ export function SplashScreen({ onDone }) {
         src={pageLoadImg}
         alt="RS200 Garage"
         style={{
-          width: '72%',
-          maxWidth: 320,
-          objectFit: 'contain',
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
           animation: 'splash-zoom 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         }}
       />
