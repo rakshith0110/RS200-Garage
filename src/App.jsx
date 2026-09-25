@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate, useLocation, useParams } from 'react-router-dom';
+import { SplashScreen } from './components/common/SplashScreen';
 import { useBikeData } from './hooks/useBikeData';
 import { BottomNav } from './components/common/BottomNav';
 import { Toast, BottomSheet } from './components/common/UIKit';
@@ -120,6 +121,7 @@ function AddIssueSheetWrapper({ data, actions, onClose }) {
 // ─── Main App ─────────────────────────────────────────────────────────────────
 export default function App() {
   const navigate = useNavigate();
+  const [splashDone, setSplashDone] = useState(false);
   const [showOdometer, setShowOdometer] = useState(false);
   const [showRecordService, setShowRecordService] = useState(false);
   const [showAddIssue, setShowAddIssue] = useState(false);
@@ -153,6 +155,8 @@ export default function App() {
   };
 
   return (
+    <>
+    {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
     <div className="app-shell">
       <Routes>
         {/* ── Home / Dashboard ── */}
@@ -245,6 +249,7 @@ export default function App() {
         <AddIssueSheetWrapper data={data} actions={actions} onClose={() => setShowAddIssue(false)} />
       )}
     </div>
+    </>
   );
 }
 

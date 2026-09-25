@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import dashboardBg from '../../assets/rs200 dashboard.png';
 import {
   calculateNextService,
   getUpcomingMaintenance,
@@ -19,7 +20,26 @@ function OdometerCard({ bike, nextService, onUpdate }) {
     : 0;
 
   return (
-    <div style={{ background: 'var(--text)', color: 'white', padding: '24px 20px 20px', borderRadius: 'var(--radius-lg)', marginBottom: 16 }}>
+    <div style={{
+      background: 'var(--text)',
+      color: 'white',
+      padding: '24px 20px 20px',
+      borderRadius: 'var(--radius-lg)',
+      marginBottom: 16,
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* subtle bike image background */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage: `url(${dashboardBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center right',
+        opacity: 0.13,
+        pointerEvents: 'none',
+        borderRadius: 'var(--radius-lg)',
+      }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', opacity: 0.5, textTransform: 'uppercase', marginBottom: 4 }}>
